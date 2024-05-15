@@ -14,17 +14,17 @@ e.g.
 
 ## Basic
 
-datatypes:
-int: myInt=5
-float: myfloat=6.5
-String: myString="String example"
-boolean: mybool=True
-List: myList=[0,1,"two",3.3,False]
-Tuple: myTuple=(0,1,2)
-Dictionary: myDict={"one":1, "two":2}
+### datatypes:
+- int: myInt=5
+- float: myfloat=6.5
+- String: myString="String example"
+- boolean: mybool=True
+- List: myList=[0,1,"two",3.3,False]
+- Tuple: myTuple=(0,1,2)
+- Dictionary: myDict={"one":1, "two":2}
 
 
-del statement: to delete any variable
+- del statement: to delete any variable
 
 ### Functions
 - Basic function
