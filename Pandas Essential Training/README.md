@@ -1,4 +1,4 @@
-## Pandas Essential Training:
+Pandas Training:
 pip or conda can be used to install packages like pandas, matplotlib etc
 Python version used: 3.10.2
 1. Installing Anaconda
@@ -60,14 +60,70 @@ df.head() or df.head(10)
 #### Tail: bottom rows or bottom n rows(default 5)
 df.tail() or df.tail(10)
 
-#### Info: Information about dataframe including all columns, count, type
+#### Info: Information about dataframe including all columns, non null count, Dtype
 df.info()
 
+### Data Analysis
+
+#### value_counts(): normalize=False, sort=True, ascending=False, bins=None, dropna=True
+- return a object containing count of unique values, default is descending
+e.g. df.Gender.value_counts(ascending=True, dropna=False)
+
+#### sort_values(): axis=0, ascending=true
+df.city.sort_values()
+
+#### boolean indexing: vectors to filter data
+operator: and(&), or(|) and Not (~)
+
+#### String Handling:
+Builtin string method of str attribute
+e.g startsWith(), endsWith()
+df[df.Athlete.str.contains('Florence')]
+
+
+### Basic Plotting
+
+#### Matplotlib
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+- plot types: kind='line' or 'bar' or 'barh' or 'pie'
+e.g. plot(kind='line')
+- Colors
+- figsize
+- colormaps
+- seaborn basic plotting
+
+### Indexing
+Index object is an immutable array
+Indexing allows you to access a row or column using label
+
+
+### GROUP BY
 
 
 
+### Reshaping
+
+
+### Data Visualization
 
 
 General issues:
 1. ModuleNotFoundError: No module named 'pandas'
-Suggests pandas is not installed, so either install pandas manually using pip3 install pandas == 1.3.4
+Suggests pandas is not installed, so either install pandas manually using
+pip3 install pandas == 1.3.4
+or
+pip3 install pandas
+
+2. ModuleNotFoundError: No module named 'matplotlib'
+Suggests to install matplotlib, can be installed using 
+pip3 install matplotlob ==version
+or
+pip3 install matplotlob
+
+3. ModuleNotFoundError: No module named 'seaborn'
+Suggest to install seaborn, can be installed using pip3
+pip3 install seaborn == versionnumber
+or
+pip3 install seaborn
