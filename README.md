@@ -1,5 +1,3 @@
-# Python-Learning
-
 ## Learning python
 
 ### Python Shell:
@@ -14,6 +12,7 @@ e.g.
    print(name) or name
 
 
+## Basic
 
 datatypes:
 int: myInt=5
@@ -49,7 +48,35 @@ del statement: to delete any variable
 - using try and except
 
 
+## File Management
+### Read and write using built in python file methods
+1. Open file for writing or create if not exists
+e.g. 
+f=open("textfile.txt", "w+")
+f.write("some text")
+2. Append Mode
+e.g. open("textfile.txt","a+")
+f.write("some text")
+3. Read file
+e.g. open("textfile.txt", "r")
+content=f.readlines() or f.read()
 
+
+### Using OS path Utils
+### Using Shell Utils
+
+
+## Using Dates and Times
+- DateTime
+- Formatting DateTime
+- TimeDelta
+- Calendar
+
+## Internet Data
+- InetData
+- Working with JSON
+- Parsing HTML
+- Parsing XML
 
 ### Recap
 - What is the output of the code below?
@@ -65,14 +92,16 @@ for i, c in enumerate(thestr):
     newstr += c
 print(newstr)
 ```
-	- Ogres are ften flh
+Answer: Ogres are ften flh
 - What is the proper code for creating a "for" loop that will execute 9 times starting at the number 6?
 	- for i in range(6, 16):
 
 - Of the following options, which is logically equivalent to the code below? maxnum = x if (x>y) else yt
-	- ```maxnum = y
+```
+maxnum = y
 	  if (x>y):
-    	    maxnum = x```
+    	    maxnum = x
+```
 - What will this line do? value=input("2+2=")
 	- It will store the user's input into a variable.
 
@@ -86,8 +115,9 @@ def inc(a,b=1):
 
  a=inc(1)
  a=inc(a,a)
- print(a)```
-	- 4
+ print(a)
+```
+Answer:	- 4
 
 - What is the proper syntax for accessing the fourth element of the following sequence? values = [1,3,5,7,9,11,13]
 	- values[3]
@@ -101,7 +131,7 @@ def inc(a,b=1):
 if __name__ == "__main__":
     main()
 ```
-	- It executes the main() function only if this file is executed as the main program.
+Answer: It executes the main() function only if this file is executed as the main program.
 
 - Given this variable, how can you print it reversed? s="123456"
 	- print(s[::-1])
@@ -113,7 +143,7 @@ thestr = "This is a string"
 print(thestr)
 thestr = 5 
 ```
-	- The code will print "This is a string" and set the value of thestr to 5.
+Answer: The code will print "This is a string" and set the value of thestr to 5.
 
 - What will this code print?
 
@@ -125,19 +155,19 @@ except ValueError:
 finally:
     print("Something went wrong.")
 ```
-	- There is a value error. Something went wrong.
+Answer: There is a value error. Something went wrong.
 
 - Which of these is not one of the main Python data types?
 	- matrix
 - What is a Python library module?
 	- pre-built code you can use in your program
 - What is the correct way to define a class named "Point" that is initialized with x and y coordinate values?
-	-
-   ``` class Point():
+``` 
+class Point():
     def __init__(self, x, y):
         self.x = x
-        self.y = y ```
-
+        self.y = y 
+```
 - How many numbers will be printed with this code?
 
 ```
@@ -146,7 +176,7 @@ while(x<5):
     print(x)
     x=x-1
 ```
-	- an infinite number
+Answer: an infinite number
 
 - When creating a match-case block, which line defines the default case?
 	- case _:
@@ -156,11 +186,10 @@ while(x<5):
 
 - What will this code print?
 ```
-
 var="123456789"
 print(var[1:6:2])
 ```
-	- 246
+Answer: 246
 
 - What is the purpose of the finally section of an exception handling statement?
 	- The code in the finally section always runs, so it's a good place to clean up any allocated resources.
@@ -172,13 +201,159 @@ print(var[1:6:2])
 try:
     result = x / y
 ```
-	- ```
+Answer:
+```
 		except ZeroDivisionError as e:
     print("A divide by zero error occurred", e)
-	```
+```
 
 - What is the correct way to import Python's math module and then use the square root function?
 	- import math x = math.sqrt(16)
 
 - What is the purpose of the super() function when working with Python classes?
 	- to access methods and properties within the parent class of the class where super() is being called from
+
+- What does the os.listdir() function return?
+	- files and subdirectories in the current directory
+- What is the correct code to rename a given file from "file.txt" to "data.dat" assuming that the os module has been imported?
+	- os.rename("file.txt", "data.dat")
+
+- While _____ checks whether a path exists, _____ checks whether a path is a file.
+	- path.exists(); path.isfile()
+
+- What mistake, if any, is present in this code? shutil.make_archive("myfile","myfolder")
+	- The archive format is not specified.
+
+- What is the correct code to use to open a file named "thefile.txt" for appending data and to create the file if it doesn't exist?
+	- f = open("thefile.txt", "a+")
+
+- Which code reads the entire contents of a file line by line into an array?
+	- contents=myfile.readlines()
+
+- What will be printed, assuming you are on a Windows machine and the working directory is set to C:\Projects? print(path.realpath("myfile.txt"))
+	- C:\Projects\myfile.txt
+
+- Of the following examples, which one will correctly print the name of tomorrow's day of the week?
+```
+today=date.today()
+days=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+print("Tomorrow will be "+days[(today.weekday()+1)%7])
+```
+
+- What is another way to implement this code? x = datetime.date(datetime.now())
+	- x = date.today()
+
+- What are all the argument(s), if any, expected by the calendar.monthcalendar() function?
+	- a year and a month, as integers
+
+- What calendar class will you use to create a Python list of weeks for a given month, where each week is a Python list of days?
+	- monthcalendar()
+
+- Your program needs to alert the user if their password expires in less than 7 days. Assuming the password expiration date is in the texp variable, what option will work best?
+	- if ((texp-date.today()).days<7):
+    	- print("password will expire soon!")
+
+- Which strftime() code prints the abbreviated weekday name?
+	- %a
+- Of the following examples, which one will generate a date and time output in the following format? 13-Mar-2020 16:42:58
+```
+from datetime import datetime
+ now=datetime.now()
+ print(now.strftime("%d-%b-%Y %H:%M:%S"))
+```
+
+- Which code can you use to print a text-formatted monthly calendar for every month in the current year, using Sunday as the first day of the week?
+```
+import calendar
+import datetime
+year = datetime.datetime.now().year
+cal = calendar.TextCalendar(calendar.SUNDAY)
+for m in range(1,13):
+    print(cal.formatmonth(year, m, 0, 0))
+```
+- You need to calculate tomorrow's date. Which option should you choose?
+
+```
+ today = date.today()
+
+ # Option A:
+ tomorrow = today+timedelta(days=1)
+ # Option B:
+ tomorrow = date(today.year,today.month,today.day+1)
+```
+Answer: Option A
+
+- Given the XML below, what would be the correct Python code to add a third item to the list that has a yellow color and a small size?
+
+```
+ <?xml version="1.0" encoding="UTF-8" ?>
+  <catalog>
+  <item color="blue" size="large"/>
+  <item color="red" size="medium"/>
+  </catalog>
+```
+Answer:
+```
+doc = xml.dom.minidom.parse("my.xml")
+newItem = doc.createElement("item")
+newItem.setAttribute("color", "yellow")
+newItem.setAttribute("size", "small")
+doc.firstChild.appendChild(newItem)
+```
+
+- What is the name of the base class that Python provides that you must derive a class from to work with HTML?
+	- HTMLParser
+
+- Given the following JSON data stored in a variable named "theJSON", how can you list only the skill names?
+
+```
+ {
+  "name": "John",
+  "title": "Python Developer",
+  "skills": [{
+  "name": "coding",
+  "level": "expert"
+  },
+  {
+  "name": "documentation",
+  "level": "basic"
+  }]
+  }
+```
+```
+for i in theJSON["skills"]:
+  print(i["name"])
+```
+
+- What is returned by the getpos() method of the HTML parsing parent class?
+	- the line and position where the specific element starts
+
+- Given the JSON data below is loaded to the variable x, which call will print "jane"?
+```
+
+{
+"users": [
+    {"name":"john","gender":"male"},
+    {"name":"jane","gender":"female"},
+    {"name":"jim","gender":"male"},
+    {"name":"jackie","gender":"female"}
+]
+}
+```
+	- print(x["users"][1]["name"])
+
+- How do you send an HTTP request?
+	- urllib.request.urlopen("https://mysite.com")
+
+- The following code, which is intended to write the HTML source content of the google.com homepage to the console, is missing a line at the ??? placeholder. What should this line be?
+
+```
+import urllib.request
+webUrl = urllib.request.urlopen("http://www.google.com")
+???
+print(results)
+```
+	- Answer: results = webUrl.read()
+
+- What value should be returned by the call to the URL request getcode() method to confirm that the specified URL has successfully returned data?
+	- 200
